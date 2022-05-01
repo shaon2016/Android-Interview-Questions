@@ -1,5 +1,5 @@
 # Android Interview Questions
-Here you will find top interview questions I have faced during interviews. I have interviewed in many companies. 
+Here you will find top interview questions.
 I will highlight some important topics into this thread. 
 
 # Android Basics
