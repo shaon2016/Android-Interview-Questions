@@ -317,6 +317,105 @@ Observable.zip(
 ```
 
 
+# OOP
+
+* ***What is Object Oriented Programming?***
+
+Object-Oriented Programming(OOPs) is a type of programming that is based on objects rather than just functions and procedures. Individual objects are grouped into classes. OOPs implements real-world entities like inheritance, polymorphism, hiding, etc into programming. It also allows binding data and code together.
+
+* ***Why use OOPs?***
+
+    • OOPs allows clarity in programming thereby allowing simplicity in solving complex problems
+    • Code can be reused through inheritance thereby reducing redundancy
+    • Data and code are bound together by encapsulation
+    • OOPs allows data hiding, therefore, private data is kept confidential
+    • Problems can be divided into different parts making it simple to solve
+    • The concept of polymorphism gives flexibility to the program by allowing the entities to have multiple forms
+
+if you stick to the rules, it makes complex code easier to develop, more relieable, more maintainable, and generally better.
+
+Because OOP insists that you think about what you expose to the outside world, it lets you change the implementation of an object without affecting any other code. (Encapsulation)
+Because it allows you to have many different functions, all with the same name, all doing the same job, but on different data. (Polymorphism)
+Because it lets you write generic code: which will work with a range of data, so you don't have to write basic stuff over, and over again. (Generics)
+
+There are four major benefits to object-oriented programming:
+    • Encapsulation: in OOP, you bundle code into a single unit where you can determine the scope of each piece of data.
+    • Abstraction: 
+      Abstraction is a process of providing functionality to the users by hiding its implementation details from them. In other words, the user will have just the knowledge of what an entity is doing instead of its internal working.
+      Data abstraction is the process of hiding certain details and showing only essential information to the user.
+Abstraction can be achieved with either abstract classes or interfaces
+      We can achieve 100% abstraction using interfaces.
+    • Inheritance: because a class can inherit attributes and behaviors from another class, you are able to reuse more code.
+    • Polymorphism: one class can be used to create many objects, all from the same flexible piece of code.
+The word polymorphism means having many forms.
+Real-life Illustration: Polymorphism
+A person at the same time can have different characteristics. Like a man at the same time is a father, a husband, an employee. So the same person possesses different behavior in different situations. This is called polymorphism. 
+Method Overloading: When there are multiple functions with the same name but different parameters then these functions are said to be overloaded.
+
+Method Overriding: When derived class has a definition for a method of the base class.
+
+* ***When to use abstract classes and abstract methods with an example***
+
+There are situations in which we will want to define a superclass that declares the structure of a given abstraction without providing a complete implementation of every method. That is, sometimes we will want to create a superclass that only defines a generalization form that will be shared by all of its subclasses, leaving it to each subclass to fill in the details.
+Consider a classic “shape” example, perhaps used in a computer-aided design system or game simulation. The base type is “shape” and each shape has a color, size, and so on. From this, specific types of shapes are derived(inherited)-circle, square, triangle, and so on — each of which may have additional characteristics and behaviors. For example, certain shapes can be flipped. Some behaviors may be different, such as when you want to calculate the area of a shape. The type hierarchy embodies both the similarities and differences between the shapes.
+ 
+
+* ***Difference between Structs and Classes***
+
+    • Struct are value types whereas Classes are reference types.
+    • Structs are stored on the stack whereas Classes are stored on the heap.
+    • Value types hold their value in memory where they are declared, but a reference type holds a reference to an object in memory.
+    • Value types are destroyed immediately after the scope is lost whereas reference type only destroys the variable after the scope is lost. The object is later destroyed by the garbage collector.
+    • When you copy a struct into another struct, a new copy of that struct gets created. The modified struct won't affect the value of the other struct.
+    • When you copy a class into another class, it only copies the reference variable.
+    • Both reference variables point to the same object on the heap. Changes done to one variable will affect the other reference variable.
+    • Structs can not have destructors, but classes can have destructors.
+    • Structs can not have explicit parameter-less constructors whereas classes can. Structs don't support inheritance, but classes do. Both support inheritance from an interface.
+    • Structs are sealed type.
+
+* ***Can you call the base class method without creating an instance?***
+
+Yes, you can call the base class without instantiating it if:
+    • It is a static method
+    • The base class is inherited by some other subclass
+    
+* ***What are the limitations of inheritance?***
+
+    • Increases the time and effort required to execute a program as it requires jumping back and forth between different classes
+    • The parent class and the child class get tightly coupled
+    • Any modifications to the program would require changes both in the parent as well as the child class
+    •  Can not do multiple inheritance using class
+
+* ***What is polymorphism?***
+
+Polymorphism refers to the ability to exist in multiple forms. Multiple definitions can be given to a single interface. For example, if you have a class named Vehicle, it can have a method named speed but you cannot define it because different vehicles have different speed. This method will be defined in the subclasses with different definitions for different vehicles.
+
+* ***What is static polymorphism?***
+
+Static polymorphism (static binding) is a kind of polymorphism that occurs at compile time. An example of compile-time polymorphism is method overloading.
+
+* ***What is dynamic polymorphism?***
+
+Runtime polymorphism or dynamic polymorphism (dynamic binding) is a type of polymorphism which is resolved during runtime. An example of runtime polymorphism is method overriding.
+
+* ***What is method overloading?***
+
+Method overloading is a feature of OOPs which makes it possible to give the same name to more than one methods within a class if the arguments passed differ.
+
+* ***What is method overriding?***
+
+Method overriding is a feature of OOPs by which the child class or the subclass can redefine methods present in the base class or parent class. Here, the method that is overridden has the same name as well as the signature meaning the arguments passed and the return type.
+
+* ***What is data abstraction?***
+
+Data abstraction is a very important feature of OOPs that allows displaying only the important information and hiding the implementation details. For example, while riding a bike, you know that if you raise the accelerator, the speed will increase, but you don’t know how it actually happens. This is data abstraction as the implementation details are hidden from the rider.
+
+* ***What is Garbage Collection(GC)?***
+
+GC is an implementation of automatic memory management. The Garbage collector frees up space occupied by objects that are no longer in existence.
+
+
+
 # Data Structure
 
 * ***Hash functions***
