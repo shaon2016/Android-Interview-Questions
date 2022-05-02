@@ -4,6 +4,7 @@ I will highlight some important topics into this thread.
 
 # Android Basics
 
+
 * ***What is Context?***
 
 Interface to global information about an application environment. This is an abstract class whose implementation is provided 
@@ -32,6 +33,67 @@ Implicit Intents do not directly specify the Android components which should be 
 it only specifies action to be performed. A Uri can be used with the implicit intent to specify the data type.
 
 ```Intent intent = new Intent(ACTION_VIEW,Uri.parse("http://www.google.com"));```
+
+* ***What is content provider?***
+
+Content providers can help an application manage access to data stored by itself, stored by other apps, and provide a way to share data with other apps. They encapsulate the data, and provide mechanisms for defining data security.
+
+* ***The last callback in the lifecycle of an activity is onDestroy(). The system calls this method on your activity as the final signal that your activity instance is being completely removed from the system memory. Usually, the system will call onPause() and onStop() before calling onDestroy(). Describe a scenario, though, where onPause() and onStop() would not be invoked.***
+
+onPause() and onStop() will not be invoked if finish() is called from within the onCreate() method. This might occur, for example, if you detect an error during onCreate() and call finish() as a result. In such a case, though, any cleanup you expected to be done in onPause() and onStop() will not be executed.
+Although onDestroy() is the last callback in the lifecycle of an activity, it is worth mentioning that this callback may not always be called and should not be relied upon to destroy resources. It is better have the resources created in onStart() and onResume(), and have them destroyed in onStop() and onPause(), respectively.
+
+* ***What is difference between Serializable and Parcelable ? Which is best approach in Android?***
+ 
+Serializable is a standard Java interface. You simply mark a class Serializable by implementing the interface, and Java will automatically serialize it in certain situations.
+Parcelable is an Android specific interface where you implement the serialization yourself. It was created to be far more efficient than Serializable, and to get around some problems with the default Java serialization scheme.
+
+* ***What is the difference between Service and IntentService? How is each used?
+
+Service is the base class for Android services that can be extended to create any service. A class that directly extends Serviceruns on the main thread so it will block the UI (if there is one) and should therefore either be used only for short tasks or should make use of other threads for longer tasks.
+IntentService is a subclass of Service that handles asynchronous requests (expressed as “Intents”) on demand. Clients send requests through startService(Intent) calls. The service is started as needed, handles each Intent in turn using a worker thread, and stops itself when it runs out of work. Writing an IntentService can be quite simple; just extend the IntentServiceclass and override the onHandleIntent(Intent intent) method where you can manage all incoming requests.
+
+* ***What is broadcast receiver?
+
+A broadcast receiver (receiver) is an Android component which allows you to register for system or application events. All registered receivers for an event are notified by the Android runtime once this event happens.
+
+We can use broadcast receiver to know -> check whether an internet connection is available, what the battery label should be, etc.
+
+
+* ***Which method is called only once in a fragment life cycle?
+
+onAttached()
+
+* ***Is it possible to create an activity in Android without a user interface ?
+
+Yes, an activity can be created without any user interface. These activities are treated as abstract activities.
+
+* ***Activity Lifecycle
+
+OnCreate → Creates the activity
+OnStart → User can see the screen
+OnResume → When user can interact the screen
+
+onPause → when part of app is visible but in background
+onStop → When app is not visible to user
+OnDestroy → when activity is destroyed
+
+* ***When should you use a Fragment rather than an Activity?
+        
+1) When you have some UI components to be used across various activities
+2) When multiple view can be displayed side by side just like viewPager
+
+
+* ***What is the difference between adding/replacing fragment in backstack?
+
+The important difference is:
+replace removes the existing fragment and adds a new fragment..
+but add retains the existing fragments and adds a new fragment that means existing fragment will be active and they wont be in 'paused' state hence when a back button is pressed onCreateView() is not called for the existing fragment(the fragment which was there before new fragment was added).
+
+* ***What is the purpose of addToBackStack() while commiting fragment transaction?
+
+By calling addToBackStack(), the replace transaction is saved to the back stack so the user can reverse the transaction and bring back the previous fragment by pressing the Back button. 
+   
 
 # Design Pattern
 
@@ -200,6 +262,7 @@ Observable.zip(
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
         .subscribe(getObserver())
 ```
+
 
 # Data Structure
 
