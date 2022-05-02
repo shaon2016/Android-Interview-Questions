@@ -48,27 +48,27 @@ Although onDestroy() is the last callback in the lifecycle of an activity, it 
 Serializable is a standard Java interface. You simply mark a class Serializable by implementing the interface, and Java will automatically serialize it in certain situations.
 Parcelable is an Android specific interface where you implement the serialization yourself. It was created to be far more efficient than Serializable, and to get around some problems with the default Java serialization scheme.
 
-* ***What is the difference between Service and IntentService? How is each used?
+* ***What is the difference between Service and IntentService? How is each used?***
 
 Service is the base class for Android services that can be extended to create any service. A class that directly extends Serviceruns on the main thread so it will block the UI (if there is one) and should therefore either be used only for short tasks or should make use of other threads for longer tasks.
 IntentService is a subclass of Service that handles asynchronous requests (expressed as “Intents”) on demand. Clients send requests through startService(Intent) calls. The service is started as needed, handles each Intent in turn using a worker thread, and stops itself when it runs out of work. Writing an IntentService can be quite simple; just extend the IntentServiceclass and override the onHandleIntent(Intent intent) method where you can manage all incoming requests.
 
-* ***What is broadcast receiver?
+* ***What is broadcast receiver?***
 
 A broadcast receiver (receiver) is an Android component which allows you to register for system or application events. All registered receivers for an event are notified by the Android runtime once this event happens.
 
 We can use broadcast receiver to know -> check whether an internet connection is available, what the battery label should be, etc.
 
 
-* ***Which method is called only once in a fragment life cycle?
+* ***Which method is called only once in a fragment life cycle?***
 
 onAttached()
 
-* ***Is it possible to create an activity in Android without a user interface ?
+* ***Is it possible to create an activity in Android without a user interface?***
 
 Yes, an activity can be created without any user interface. These activities are treated as abstract activities.
 
-* ***Activity Lifecycle
+* ***Activity Lifecycle***
 
 OnCreate → Creates the activity
 OnStart → User can see the screen
@@ -78,13 +78,13 @@ onPause → when part of app is visible but in background
 onStop → When app is not visible to user
 OnDestroy → when activity is destroyed
 
-* ***When should you use a Fragment rather than an Activity?
+* ***When should you use a Fragment rather than an Activity?***
         
 1) When you have some UI components to be used across various activities
 2) When multiple view can be displayed side by side just like viewPager
 
 
-* ***What is the difference between adding/replacing fragment in backstack?
+* ***What is the difference between adding/replacing fragment in backstack?***
 
 The important difference is:
 replace removes the existing fragment and adds a new fragment..
