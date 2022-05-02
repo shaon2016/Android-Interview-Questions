@@ -22,8 +22,7 @@ Two types of context ->
 
 An intent is to perform an action. It is mostly used to start an activity, send broadcast receiver, start services.
 
-1) Explicit Intent: In such a case, intent provides the external class to be invoked.
-Explicit intents are used in the application itself wherein one activity can switch to other activity.
+1) Explicit Intent: It specifies the component. Explicit intents are used in the application itself wherein one activity can switch to other activity.
 Example ```Intent intent = new Intent(this,Target.class);```
 
 3) Implicit Intent: It doesn't specify the component. In such a case, intent provides information on available components provided by the system that is to be invoked.
