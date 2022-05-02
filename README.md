@@ -49,14 +49,27 @@ Parcelable is an Android specific interface where you implement the serializatio
 * ***What is the difference between Service and IntentService? How is each used?***
 
 Service is the base class for Android services that can be extended to create any service. A class that directly extends Serviceruns on the main thread so it will block the UI (if there is one) and should therefore either be used only for short tasks or should make use of other threads for longer tasks.
+
 IntentService is a subclass of Service that handles asynchronous requests (expressed as “Intents”) on demand. Clients send requests through startService(Intent) calls. The service is started as needed, handles each Intent in turn using a worker thread, and stops itself when it runs out of work. Writing an IntentService can be quite simple; just extend the IntentServiceclass and override the onHandleIntent(Intent intent) method where you can manage all incoming requests.
+
+``` 
+This class was deprecated in API level 30. IntentService is subject to all the background execution limits imposed with Android 8.0 (API level 26). Consider using WorkManager or JobIntentService, which uses jobs instead of services when running on Android 8.0 or higher.
+```
 
 * ***What is broadcast receiver?***
 
-A broadcast receiver (receiver) is an Android component which allows you to register for system or application events. All registered receivers for an event are notified by the Android runtime once this event happens.
+A broadcast receiver is an Android component which allows you to register for system or application events. All registered receivers for an event are notified by the Android runtime once this event happens.
 
 We can use broadcast receiver to know -> check whether an internet connection is available, what the battery label should be, etc.
 
+```
+Beginning with Android 8.0 (API level 26), the system imposes additional restrictions on manifest-declared receivers.
+
+If your app targets Android 8.0 or higher, you cannot use the manifest to declare a receiver for most implicit broadcasts (broadcasts that don't target your app specifically). You can still use a context-registered receiver when the user is actively using your app.
+```
+* ***What is the function of an intent filter?***
+
+Because every component needs to indicate which intents they can respond to, intent filters are used to filter out intents that these components are willing to receive. One or more intent filters are possible, depending on the services and activities that is going to make use of it.
 
 * ***Which method is called only once in a fragment life cycle?***
 
@@ -81,7 +94,6 @@ OnDestroy → when activity is destroyed
 1) When you have some UI components to be used across various activities
 2) When multiple view can be displayed side by side just like viewPager
 
-
 * ***What is the difference between adding/replacing fragment in backstack?***
 
 The important difference is:
@@ -103,7 +115,7 @@ ANR(Application is Not Responding) is a dialog box that appears when the applica
 
 Following measures can be taken to avoid ANR:
     • An application should perform lengthy database or networking operations in separate threads to avoid ANR.
-    • For background task-intensive applications, you can lessen pressure from the UI thread by using the IntentService.
+    • For background task-intensive applications, you can lessen pressure from the UI thread by using the Workmanager.
 
 * ***What are the troubleshooting techniques you can follow if an application is crashing frequently?***
 
@@ -114,10 +126,6 @@ Memory Management:
     • Some apps run perfectly on one mobile device but might crash on other devices. This is where processing power, memory management, and CPU speed are considered.
     • As there is a limited amount of memory space on mobile devices, you can free up memory space for the application to function properly.
     • If an application is frequently crashing, you can delete the application’s data, which will clear its cache memory and allow some free space on your device and might boost the app’s performance.
-
-* ***What is the function of an intent filter?***
-
-Because every component needs to indicate which intents they can respond to, intent filters are used to filter out intents that these components are willing to receive. One or more intent filters are possible, depending on the services and activities that is going to make use of it.
 
 * ***When should we use serHasFixedSize(true) in Recyclerview?***
 
@@ -142,7 +150,7 @@ Then if we do not use a fixed width/height
         android:layout_height="wrap_content"/> 
 ```
 
-We should use my_recycler_view.setHasFixedSize(false) since wrap_content for widthor height can change the size of our RecyclerView.
+We should use my_recycler_view.setHasFixedSize(false) since wrap_content for width or height can change the size of our RecyclerView.
 When we talk about RecyclerView setHasFixedSize we are not talking about the quantity of elements inside of it but instead the the size of the View itself.
 
 
