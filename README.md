@@ -325,12 +325,12 @@ Object-Oriented Programming(OOPs) is a type of programming that is based on obje
 
 * ***Why use OOPs?***
 
-    • OOPs allows clarity in programming thereby allowing simplicity in solving complex problems
-    • Code can be reused through inheritance thereby reducing redundancy
-    • Data and code are bound together by encapsulation
-    • OOPs allows data hiding, therefore, private data is kept confidential
-    • Problems can be divided into different parts making it simple to solve
-    • The concept of polymorphism gives flexibility to the program by allowing the entities to have multiple forms
+1) OOPs allows clarity in programming thereby allowing simplicity in solving complex problems
+2) Code can be reused through inheritance thereby reducing redundancy
+3) Data and code are bound together by encapsulation
+4) OOPs allows data hiding, therefore, private data is kept confidential
+5) Problems can be divided into different parts making it simple to solve
+6) The concept of polymorphism gives flexibility to the program by allowing the entities to have multiple forms
 
 if you stick to the rules, it makes complex code easier to develop, more relieable, more maintainable, and generally better.
 
@@ -339,14 +339,15 @@ Because it allows you to have many different functions, all with the same name, 
 Because it lets you write generic code: which will work with a range of data, so you don't have to write basic stuff over, and over again. (Generics)
 
 There are four major benefits to object-oriented programming:
-    • Encapsulation: in OOP, you bundle code into a single unit where you can determine the scope of each piece of data.
-    • Abstraction: 
+
+1) Encapsulation: in OOP, you bundle code into a single unit where you can determine the scope of each piece of data.
+2) Abstraction: 
       Abstraction is a process of providing functionality to the users by hiding its implementation details from them. In other words, the user will have just the knowledge of what an entity is doing instead of its internal working.
       Data abstraction is the process of hiding certain details and showing only essential information to the user.
 Abstraction can be achieved with either abstract classes or interfaces
       We can achieve 100% abstraction using interfaces.
-    • Inheritance: because a class can inherit attributes and behaviors from another class, you are able to reuse more code.
-    • Polymorphism: one class can be used to create many objects, all from the same flexible piece of code.
+3) Inheritance: because a class can inherit attributes and behaviors from another class, you are able to reuse more code.
+4) Polymorphism: one class can be used to create many objects, all from the same flexible piece of code.
 The word polymorphism means having many forms.
 Real-life Illustration: Polymorphism
 A person at the same time can have different characteristics. Like a man at the same time is a father, a husband, an employee. So the same person possesses different behavior in different situations. This is called polymorphism. 
@@ -362,29 +363,27 @@ Consider a classic “shape” example, perhaps used in a computer-aided design 
 
 * ***Difference between Structs and Classes***
 
-    • Struct are value types whereas Classes are reference types.
-    • Structs are stored on the stack whereas Classes are stored on the heap.
-    • Value types hold their value in memory where they are declared, but a reference type holds a reference to an object in memory.
-    • Value types are destroyed immediately after the scope is lost whereas reference type only destroys the variable after the scope is lost. The object is later destroyed by the garbage collector.
-    • When you copy a struct into another struct, a new copy of that struct gets created. The modified struct won't affect the value of the other struct.
-    • When you copy a class into another class, it only copies the reference variable.
-    • Both reference variables point to the same object on the heap. Changes done to one variable will affect the other reference variable.
-    • Structs can not have destructors, but classes can have destructors.
-    • Structs can not have explicit parameter-less constructors whereas classes can. Structs don't support inheritance, but classes do. Both support inheritance from an interface.
-    • Structs are sealed type.
-
+1) Struct are value types whereas Classes are reference types.
+2) Structs are stored on the stack whereas Classes are stored on the heap.
+3) Value types hold their value in memory where they are declared, but a reference type holds a reference to an object in memory.
+4) Value types are destroyed immediately after the scope is lost whereas reference type only destroys the variable after the scope is lost. The object is later destroyed by the garbage collector.
+5) When you copy a struct into another struct, a new copy of that struct gets created. The modified struct won't affect the value of the other struct.
+6) When you copy a class into another class, it only copies the reference variable.
+7) Both reference variables point to the same object on the heap. Changes done to one variable will affect the other reference variable.
+8) Structs can not have destructors, but classes can have destructors.
+  
 * ***Can you call the base class method without creating an instance?***
 
 Yes, you can call the base class without instantiating it if:
-    • It is a static method
-    • The base class is inherited by some other subclass
+1) It is a static method
+2) The base class is inherited by some other subclass
     
 * ***What are the limitations of inheritance?***
 
-    • Increases the time and effort required to execute a program as it requires jumping back and forth between different classes
-    • The parent class and the child class get tightly coupled
-    • Any modifications to the program would require changes both in the parent as well as the child class
-    •  Can not do multiple inheritance using class
+1) Increases the time and effort required to execute a program as it requires jumping back and forth between different classes
+2) The parent class and the child class get tightly coupled
+3) Any modifications to the program would require changes both in the parent as well as the child class
+5) Can not do multiple inheritance using class
 
 * ***What is polymorphism?***
 
@@ -414,6 +413,23 @@ Data abstraction is a very important feature of OOPs that allows displaying only
 
 GC is an implementation of automatic memory management. The Garbage collector frees up space occupied by objects that are no longer in existence.
 
+
+# Kotlin
+
+* ***What are advantages of Kotlin over Java***
+
+1) one of the biggest conveniences with using Kotlin is that it's compatible with Java!
+With all its tools and frameworks, you can just add these to your Kotlin projects — nice and easy —with no need to change the entire project in Java.
+2) More readable and need to write less code than java
+
+3) Kotlin is null-safe by default. It does not allow variables to be assigned with a null value. But in Java, we can assign null values to variables and, it may lead to null pointer exception that may crash the application.
+
+* ***Why did you choose a specific coding language, certain framework or technology?***
+
+1) One of the biggest conveniences with using Kotlin is that it's compatible with Java!
+With all its tools and frameworks, you can just add these to your Kotlin projects — nice and easy —with no need to change the entire project in Java.
+2) More readable and need to write less code than java
+3) Kotlin is null-safe by default. It does not allow variables to be assigned with a null value. But in Java, we can assign null values to variables and, it may lead to null pointer exception that may crash the application.
 
 
 # Data Structure
