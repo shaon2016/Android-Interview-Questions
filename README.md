@@ -95,6 +95,59 @@ but add retains the existing fragments and adds a new fragment that means exis
 By calling addToBackStack(), the replace transaction is saved to the back stack so the user can reverse the transaction and bring back the previous fragment by pressing the Back button. 
    
 
+# Advance Android
+
+* ***What is ANR in Android? What are the measures you can take to avoid ANR?***
+
+ANR(Application is Not Responding) is a dialog box that appears when the application is not responding. This ANR dialogue is displayed whenever the main thread within an application has been unresponsive for a long time under the following conditions:
+1) When there is no response to an input event even after 5 seconds.
+2) When a broadcast receiver has not completed its execution within 10 seconds.
+
+Following measures can be taken to avoid ANR:
+    • An application should perform lengthy database or networking operations in separate threads to avoid ANR.
+    • For background task-intensive applications, you can lessen pressure from the UI thread by using the IntentService.
+
+* ***What are the troubleshooting techniques you can follow if an application is crashing frequently?***
+
+If an Android application is crashing frequently, you can follow the below-given techniques:
+Compatibility Check:
+It is not possible to test an application for all kinds of devices and operating systems. There might be a possibility that an application is not compatible with your OS.
+Memory Management:
+    • Some apps run perfectly on one mobile device but might crash on other devices. This is where processing power, memory management, and CPU speed are considered.
+    • As there is a limited amount of memory space on mobile devices, you can free up memory space for the application to function properly.
+    • If an application is frequently crashing, you can delete the application’s data, which will clear its cache memory and allow some free space on your device and might boost the app’s performance.
+
+* ***What is the function of an intent filter?***
+
+Because every component needs to indicate which intents they can respond to, intent filters are used to filter out intents that these components are willing to receive. One or more intent filters are possible, depending on the services and activities that is going to make use of it.
+
+* ***When should we use serHasFixedSize(true) in Recyclerview?***
+
+If we have a RecyclerView with match_parent as height/width, we should add setHasFixedSize(true) since the size of the RecyclerView itself does not change inserting or deleting items into it.
+setHasFixedSize should be false if we have a RecyclerView with wrap_content as height/width because each element inserted by the adapter could change the size of the RecyclerView depending on the items inserted/deleted, so, the size of the RecyclerView will be different each time we add/delete items.
+To be more clear, if we use a fixed width/height
+
+```
+    <android.support.v7.widget.RecyclerView
+    android:id="@+id/my_recycler_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
+```
+    
+We can use my_recycler_view.setHasFixedSize(true)
+
+Then if we do not use a fixed width/height
+
+```<android.support.v7.widget.RecyclerView
+        android:id="@+id/my_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/> 
+```
+
+We should use my_recycler_view.setHasFixedSize(false) since wrap_content for widthor height can change the size of our RecyclerView.
+When we talk about RecyclerView setHasFixedSize we are not talking about the quantity of elements inside of it but instead the the size of the View itself.
+
+
 # Design Pattern
 
 * ***What is MVVM?***
