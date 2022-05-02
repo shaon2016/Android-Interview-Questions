@@ -26,8 +26,7 @@ An intent is to perform an action. It is mostly used to start an activity, send 
 Explicit intents are used in the application itself wherein one activity can switch to other activity.
 Example ```Intent intent = new Intent(this,Target.class);```
 
-3) Implicit Intent: It doesn't specify the component. In such a case, intent provides information on available components provided 
-4) by the system that is to be invoked.
+3) Implicit Intent: It doesn't specify the component. In such a case, intent provides information on available components provided by the system that is to be invoked.
 
 Implicit Intents do not directly specify the Android components which should be called, 
 it only specifies action to be performed. A Uri can be used with the implicit intent to specify the data type.
