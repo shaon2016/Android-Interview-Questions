@@ -90,7 +90,7 @@ they are:
 [More details](https://www.freecodecamp.org/news/solid-principles-explained-in-plain-english/)
 
 
-* ***What does clean code means to you?***
+* ***What does clean code mean to you?***
 
 Clean code means that your code is easy to read, easy to understand, and easy to change. It's as simple as having descriptively named variables, functions, and classes so that as you read, you know what each contains or does without guesswork.
 
@@ -124,9 +124,94 @@ The main reason for incorporating threads into an application is to improve its 
 
 Reactive programming is programming with asynchronous data streams.
 
+* ***Difference between concatMap and flatMap?***
+
+Flatmap converts stream(s) into a single streams without maintaining a order where as concatmap does the same along with maintaining the order
+
+Flatmap example -[[1,2,3],[4,5,6],[7,8,9]] -> [1,4,7,2,5,8,3,6,9]
+
+Concatmap example -[[1,2,3],[4,5,6],[7,8,9]] -> [1,2,3,4,5,6,7,8,9]
+
+* ***When does Observable Start to Emit Items?***
+
+In Observable, there are two types: Cold and Hot Observables. Cold Observables will perform work and subsequently emit items only once is someone has subscribed, whereas Hot Observables will perform work and emit items regardless of observers or not.
+
+* ***How many times can onNext(), onError() and onComplete() be called?***
+
+onNext() can be called from zero to an infinite number of times, onError() can be called at maximum once per stream; similarly onComplete() is called at maximum once per stream.
+
+* ***Define Observable chain***
+
+List of operations or transformations performed in between the source and end subscriber. One of the examples, it to emit User objects, filtering out the admin users and checking for authentication of users, and finally map full name.
+
+* ***What is backpressure?***
+Backpressure is the inability of a Subscriber to handle all incoming events in time. In other words Backpressure can occur when the Producer of events is faster than the Consumer. If not handled correctly it can error out a stream.
+
+* ***How to deal with backpressure issues?***
+
+If you thing Backpressure might occur, then Flowable with a correct BackpressureStrategy is the safest choice.
+
+
+* ***Difference between FlatMap and Map***
+
+1) Map
+Map transforms the items emitted by an Observable by applying a function to each item.
+2) FlatMap
+FlatMap transforms the items emitted by an Observable into Observables.
+In your case you need map, since there is only 1 input and 1 output. 
+map - Supplied function simply accepts an item and returns an item which will be emitted further (only once) down.
+flatMap - Supplied function accepts an item then returns an "Observable", meaning each item of the new "Observable" will be emitted separately further down. 
+May be code will clear things up for you:
+
+```
+    Observable.just("item1").map(str -> {
+        System.out.println("inside the map " + str);
+        return str;
+    }).subscribe(System.out::println);
+
+    Observable.just("item2").flatMap(str -> {
+        System.out.println("inside the flatMap " + str);
+        return Observable.just(str + "+", str + "++", str + "+++");
+    }).subscribe(System.out::println);
+
+Output:
+inside the map item1
+item1
+inside the flatMap item2
+item2+
+item2++
+item2+++
+```
+
+* ***ZIP Operator***
+
+Zip combine the emissions of multiple Observables together via a specified function and emit single items for each combination based on the results of this function.
+Zip operator allows us to get the results from multiple observables at a time.
+
+```
+Observable.zip(
+        getCricketFansObservable(),
+        getFootballFansObservable(),
+        BiFunction<List<User>, List<User>, List<User>> { cricketFans, footballFans ->
+            return@BiFunction filterUserWhoLovesBoth(
+                cricketFans,
+                footballFans
+            )
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+        .subscribe(getObserver())
+```
 
 # Data Structure
 
-* ***hash functions***
+* ***Hash functions***
 
 Hashing is the process of converting an input of any length into a fixed size string of text using a mathematical function. Any text can be converted into an array of numbers and letters through an algorithm. The message to be hashed is called input, the algorithm is to do so is called hash function and the output is called hash value.
+
+
+
+
+
+
+
+
+
