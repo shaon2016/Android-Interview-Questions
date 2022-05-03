@@ -167,7 +167,7 @@ The separation of the code in MVVM is divided into View, ViewModel and Model.
 
 * ***Why you are using MVVM?***
 
-we’re going with MVVM over MVP because Android Architecture Components already has a built-in ViewModel class—no MVVM framework necessary.
+We’re going with MVVM over MVP because Android Architecture Components already has a built-in ViewModel class, no MVVM framework necessary.
 
 1) it separates the logic and view related code. It is more readable and understandable.
 2) Improves testability. As view and logic are separate. It is easy to test view and logic
@@ -176,8 +176,8 @@ we’re going with MVVM over MVP because Android Architecture Components already
 
 * ***What is the difference between MVVM and MVP?***
 
-The one-to-one relationship exists between the Presenter and the View. Multiple View can be mapped with single ViewModel. The Presenter has knowledge about the View. ViewModel has no reference to the View.
-
+1) In MVP, one-to-one relationship exists between the Presenter and the View. In MVVM, multiple View can be mapped with single ViewModel. 
+2) In MVP, the Presenter has knowledge about the View. In MVVM, viewModel has no reference to the View.
 
 * ***Do you have a problem working with MVVM?***
 
@@ -196,17 +196,17 @@ they are:
    Modification means changing the code of an existing class, and extension means adding new functionality.
       
 3) The Liskov Substitution Principle
-   Subclasses should be substitutable for their base classes.
-	 This means that, given that class B is a subclass of class A, we should be able to pass an object of class B to any 
+   Subclasses should be substitutable for their base classes. 
+   This means that, given that class B is a subclass of class A, we should be able to pass an object of class B to any 
    method that expects an object of class A and the method should not give any weird output in that case.
               
 4) The Interface Segregation Principle
    Segregation means keeping things separated, and the Interface Segregation Principle is about separating the interfaces. 
-	 The principle states that many client-specific interfaces are better than one 	general-purpose interface. 
+   The principle states that many client-specific interfaces are better than one general-purpose interface. 
    Clients should not be forced to implement a function they do no need.
       
 5) The Dependency Inversion Principle
-      Our classes should depend upon interfaces or abstract classes instead of concrete classes and functions.
+   Our classes should depend upon interfaces or abstract classes instead of concrete classes and functions.
 
 [More details](https://www.freecodecamp.org/news/solid-principles-explained-in-plain-english/)
 
@@ -255,7 +255,7 @@ Concatmap example -[[1,2,3],[4,5,6],[7,8,9]] -> [1,2,3,4,5,6,7,8,9]
 
 * ***When does Observable Start to Emit Items?***
 
-In Observable, there are two types: Cold and Hot Observables. Cold Observables will perform work and subsequently emit items only once is someone has subscribed, whereas Hot Observables will perform work and emit items regardless of observers or not.
+In Observable, there are two types: Cold and Hot Observables. Cold Observables will perform work and subsequently emit items only once if someone has subscribed, whereas Hot Observables will perform work and emit items regardless of observers or not.
 
 * ***How many times can onNext(), onError() and onComplete() be called?***
 
@@ -272,16 +272,17 @@ Backpressure is the inability of a Subscriber to handle all incoming events in t
 
 If you thing Backpressure might occur, then Flowable with a correct BackpressureStrategy is the safest choice.
 
-
 * ***Difference between FlatMap and Map***
 
 1) Map
 Map transforms the items emitted by an Observable by applying a function to each item.
 2) FlatMap
 FlatMap transforms the items emitted by an Observable into Observables.
-In your case you need map, since there is only 1 input and 1 output. 
-map - Supplied function simply accepts an item and returns an item which will be emitted further (only once) down.
+
+map - Supplied function simply accepts an item and returns an item which will be emitted further down.
+
 flatMap - Supplied function accepts an item then returns an "Observable", meaning each item of the new "Observable" will be emitted separately further down. 
+
 May be code will clear things up for you:
 
 ```
@@ -363,24 +364,20 @@ Method Overriding: When derived class has a definition for a method of the base 
 
 * ***When to use abstract classes and abstract methods with an example***
 
-There are situations in which we will want to define a superclass that declares the structure of a given abstraction without providing a complete implementation of every method. That is, sometimes we will want to create a superclass that only defines a generalization form that will be shared by all of its subclasses, leaving it to each subclass to fill in the details.
+1) There are situations in which we will want to define a superclass that declares the structure of a given abstraction without providing a complete implementation of every method. That is, sometimes we will want to create a superclass that only defines a generalization form that will be shared by all of its subclasses, leaving it to each subclass to fill in the details.
 Consider a classic “shape” example, perhaps used in a computer-aided design system or game simulation. The base type is “shape” and each shape has a color, size, and so on. From this, specific types of shapes are derived(inherited)-circle, square, triangle, and so on — each of which may have additional characteristics and behaviors. For example, certain shapes can be flipped. Some behaviors may be different, such as when you want to calculate the area of a shape. The type hierarchy embodies both the similarities and differences between the shapes.
- 
 
-* ***Difference between Structs and Classes***
+2) When you have a requirement where your base class should provide default implementation of certain methods whereas other methods should be open to being overridden by child classes use abstract classes.
 
-1) Struct are value types whereas Classes are reference types.
-2) Structs are stored on the stack whereas Classes are stored on the heap.
-3) Value types hold their value in memory where they are declared, but a reference type holds a reference to an object in memory.
-4) Value types are destroyed immediately after the scope is lost whereas reference type only destroys the variable after the scope is lost. The object is later destroyed by the garbage collector.
-5) When you copy a struct into another struct, a new copy of that struct gets created. The modified struct won't affect the value of the other struct.
-6) When you copy a class into another class, it only copies the reference variable.
-7) Both reference variables point to the same object on the heap. Changes done to one variable will affect the other reference variable.
-8) Structs can not have destructors, but classes can have destructors.
+Example: Vechicle abstract class have deafault implementation of drive method and all methods are define as abstract. So all subclasses must implement the abstract method.
+
+3) The purpose of an abstract class is to provide a common definition of a base class that multiple derived classes can share.
+
+For example a class library may define an abstract class that is used as a parameter to many of its functions and require programmers using that library to provide their own implementation of the class by creating a derived class.
   
 * ***Can you call the base class method without creating an instance?***
 
-Yes, you can call the base class without instantiating it if:
+Yes, you can call the base class method without instantiating it if:
 1) It is a static method
 2) The base class is inherited by some other subclass
     
