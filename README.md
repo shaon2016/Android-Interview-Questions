@@ -176,6 +176,40 @@ If you add multiple Views to a FrameLayout then it’ll stack them one above the
 
 LiveData is an observable data holder class. Unlike a regular observable, LiveData is lifecycle-aware, meaning it respects the lifecycle of other app components, such as activities, fragments, or services. This awareness ensures LiveData only updates app component observers that are in an active lifecycle state.
 
+* ***What is dependency injection?***
+
+Classes often require references to other classes. For example, a Car class might need a reference to an Engine class. These required classes are called dependencies. The Car class is dependent on having an instance of the Engine class to run.
+
+```
+class Car {
+
+    private val engine = Engine()
+
+    fun start() {
+        engine.start()
+    }
+}
+
+fun main(args: Array) {
+    val car = Car()
+    car.start()
+}
+```
+
+Dependency injection, With this approach you take the dependencies of a class and provide them rather than having the class instance obtain them itself.
+
+* ***What is Android Jetpack?***
+
+Jetpack is a suite of libraries to help developers follow best practices, reduce boilerplate code, and write code that works consistently across Android versions and devices so that developers can focus on the code they care about.
+
+Some jetpack libraries:
+
+WorkManager for your background scheduling needs.
+Room for data storage persistence.
+Navigation to manage your application navigation flow.
+CameraX for your camera app needs.
+
+
 # Design Pattern
 
 * ***What is MVVM?***
