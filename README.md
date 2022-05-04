@@ -490,6 +490,51 @@ With all its tools and frameworks, you can just add these to your Kotlin project
 2) More readable and need to write less code than java
 3) Kotlin is null-safe by default. It does not allow variables to be assigned with a null value. But in Java, we can assign null values to variables and, it may lead to null pointer exception that may crash the application.
 
+* ***Difference between lazy & lateinit***
+
+lateinit
+
+i) Use it with mutable variable[var]
+
+```
+ lateinit var name: String       //Allowed
+ lateinit val name: String       //Not Allowed
+```
+ii) Allowed with only non-nullable data types
+
+```
+    lateinit var name: String       //Allowed
+    lateinit var name: String?      //Not Allowed
+```
+iii) It is a promise to compiler that the value will be initialized in future.
+
+NOTE: If you try to access lateinit variable without initializing it then it throws UnInitializedPropertyAccessException.
+
+lazy
+
+i) Lazy initialization was designed to prevent unnecessary initialization of objects.
+ii) Your variable will not be initialized unless you use it.
+
+iii) It is initialized only once. Next time when you use it, you get the value from cache memory.
+
+iv) It is thread safe(It is initialized in the thread where it is used for the first time. Other threads use the same value stored in the cache).
+
+v) The variable can only be val.
+
+vi) The variable can only be non-nullable.
+
+* ***Difference between const and val***
+
+Both val and const are immutable.
+
+const is used to declare compile-time constants, whereas val for run-time constants.
+```
+const val VENDOR_NAME = "Kifayat Pashteen"  // Assignment done at compile-time
+
+val PICon = getIP()  // Assignment done at run-time
+```
+
+
 
 # Data Structure
 
