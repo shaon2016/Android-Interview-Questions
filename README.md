@@ -41,6 +41,16 @@ Content providers can help an application manage access to data stored by itself
 onPause() and onStop() will not be invoked if finish() is called from within the onCreate() method. This might occur, for example, if you detect an error during onCreate() and call finish() as a result. In such a case, though, any cleanup you expected to be done in onPause() and onStop() will not be executed.
 Although onDestroy() is the last callback in the lifecycle of an activity, it is worth mentioning that this callback may not always be called and should not be relied upon to destroy resources. It is better have the resources created in onStart() and onResume(), and have them destroyed in onStop() and onPause(), respectively.
 
+* ***What are Handlers?***
+
+Handlers are objects for managing threads. It receives messages and writes code on how to handle the message. They run outside of the activity’s lifecycle, so they need to be cleaned up properly or else you will have thread leaks.
+Handlers allow communicating between the background thread and the main thread.
+A Handler class is preferred when we need to perform a background task repeatedly after every x seconds/minutes.
+
+* ***How does the activity respond when the user rotates the screen?***
+
+When the screen is rotated, the current instance of activity is destroyed a new instance of the Activity is created in the new orientation. The onRestart() method is invoked first when a screen is rotated. The other lifecycle methods get invoked in the similar flow as they were when the activity was first created.
+
 * ***What is difference between Serializable and Parcelable ? Which is best approach in Android?***
  
 Serializable is a standard Java interface. You simply mark a class Serializable by implementing the interface, and Java will automatically serialize it in certain situations.
@@ -107,6 +117,10 @@ By calling addToBackStack(), the replace transaction is saved to the back stack 
 
 # Advance Android
 
+* ***What is a Pending Intent?***
+
+If you want someone to perform any Intent operation at future point of time on behalf of you, then we will use Pending Intent.
+
 * ***What is ANR in Android? What are the measures you can take to avoid ANR?***
 
 ANR(Application is Not Responding) is a dialog box that appears when the application is not responding. This ANR dialogue is displayed whenever the main thread within an application has been unresponsive for a long time under the following conditions:
@@ -153,6 +167,14 @@ Then if we do not use a fixed width/height
 We should use my_recycler_view.setHasFixedSize(false) since wrap_content for width or height can change the size of our RecyclerView.
 When we talk about RecyclerView setHasFixedSize we are not talking about the quantity of elements inside of it but instead the the size of the View itself.
 
+* ***When might you use a FrameLayout?***
+
+Frame Layouts are designed to contain a single item, making them an efficient choice when you need to display a single View.
+If you add multiple Views to a FrameLayout then it’ll stack them one above the other, so FrameLayouts are also useful if you need overlapping Views, for example if you’re implementing an overlay or a HUD element.
+
+* ***What is LiveData?***
+
+LiveData is an observable data holder class. Unlike a regular observable, LiveData is lifecycle-aware, meaning it respects the lifecycle of other app components, such as activities, fragments, or services. This awareness ensures LiveData only updates app component observers that are in an active lifecycle state.
 
 # Design Pattern
 
